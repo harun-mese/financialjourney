@@ -1,0 +1,34 @@
+<?php 
+   
+ if(isset($_GET['category'])  ){
+        include('./view/header.php');
+        include('./view/bookmark.php');
+        include("./pages/c.php");
+
+   }
+   if(isset($_GET['url'])  ){
+   
+    include('./view/post_header.php');
+    include('./view/bookmark.php');
+    include("./pages/p.php");
+
+   }
+
+   if( $_GET ){
+
+        if( file_exists("./pages/". $_GET["sayfa"] .".php")){
+            include("./pages/". $_GET["sayfa"] .".php");
+        }else{
+            include('./view/header.php');
+            include('./view/bookmark.php');
+            include("./pages/h.php");
+        }
+
+   }else{
+    include('./view/header.php');
+    include('./view/bookmark.php');
+    include("./pages/h.php");
+   }
+
+
+?>
